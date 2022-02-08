@@ -1,18 +1,17 @@
 import { useState } from "react"
-
 const SearchBar = ({onBtnSubmit}) => {
    const[value,setValue]= useState('')
   
     return(
-        <header className="searchbar">
-  <form className="form" onSubmit={(e)=>{ e.preventDefault();onBtnSubmit(value)}}>
-    <button type="submit" className="button" >
-      <span className="button-label">Search</span>
+        <header className="Searchbar">
+  <form className="SearchForm" onSubmit={(e)=>{ e.preventDefault();onBtnSubmit(value)}}>
+    <button type="submit" className="SearchForm-button" >
+      <span className="SearchForm-button-label">Search</span>
     </button>
 
     <input
       value={value}
-      className="input"
+      className="SearchForm-input"
       type="text"
       autoComplete="off"
       autoFocus

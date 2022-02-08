@@ -1,6 +1,6 @@
-
 const Button = ({OnbtnClick}) => {
-    return ( <button type="button" onClick={OnbtnClick}>Load More</button> );
+
+    return ( <button type="Button" onClick={OnbtnClick} className={'Button'}>Load More</button> );
 }
  
-export default Button;
+export default Button;  
