@@ -1,22 +1,38 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
+import { Component } from "react";
 import PropTypes from 'prop-types';
-const Modal = ({url,onTogleModal}) => {
+class Modal extends Component {
     
- const oncloseModal = (e)=>{
+  oncloseModal = (e)=>{
     //  console.log(e.target);
-    console.log(e.key === 'Escape');
-     if(e.target.className === 'Overlay'|| e.key === 'Escape')
-        onTogleModal() 
+    // console.log(e.key === 'Escape');
+     if(e.target.className === 'Overlay' || e.key === "Escape") {
+        this.props.onTogleModal() 
+      }
     }
 
-   useEffect(()=>{window.addEventListener('keydown',oncloseModal); 
-   return()=> window.removeEventListener('keydown',oncloseModal)},[])
+    componentDidMount() {
+      window.addEventListener('keydown', this.oncloseModal);
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener('keydown', this.oncloseModal)
+    }
+   
+   
+    render(){
+console.log(window);
+console.log(document);
+    return ( 
     
-    return ( <div className="Overlay" onClick={oncloseModal}>
+    <div className="Overlay" onClick={this.oncloseModal}>
     <div className="Modal">
-      <img src={url} alt="" />
+      <img src={this.props.url} alt="" />
     </div>
-  </div> );
+  </div> 
+  
+  );
+    }
 }
  
 Modal.prototypes = {
