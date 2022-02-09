@@ -1,4 +1,5 @@
 import { Component } from "react";
+import PropTypes from 'prop-types';
 class ImageGalleryItem extends Component {
   render() {
     return this.props.images.map((el) => 
@@ -8,4 +9,9 @@ class ImageGalleryItem extends Component {
     );
   }
 }
+
+ImageGalleryItem.prototypes = {
+  images: PropTypes.arrayOf(PropTypes.string.isRequired)
+}
+
 export default ImageGalleryItem;

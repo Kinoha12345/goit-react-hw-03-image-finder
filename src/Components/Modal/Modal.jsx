@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import PropTypes from 'prop-types';
 const Modal = ({url,onTogleModal}) => {
     
  const oncloseModal = (e)=>{
@@ -8,7 +8,9 @@ const Modal = ({url,onTogleModal}) => {
      if(e.target.className === 'Overlay'|| e.key === 'Escape')
         onTogleModal() 
     }
-   useEffect(()=>{window.addEventListener('keydown',oncloseModal); return()=> window.removeEventListener('keydown',oncloseModal)},[])
+
+   useEffect(()=>{window.addEventListener('keydown',oncloseModal); 
+   return()=> window.removeEventListener('keydown',oncloseModal)},[])
     
     return ( <div className="Overlay" onClick={oncloseModal}>
     <div className="Modal">
@@ -17,4 +19,9 @@ const Modal = ({url,onTogleModal}) => {
   </div> );
 }
  
+Modal.prototypes = {
+  url: PropTypes.string.isRequired,
+  onTogleModal: PropTypes.func.isRequired
+}
+
 export default Modal;

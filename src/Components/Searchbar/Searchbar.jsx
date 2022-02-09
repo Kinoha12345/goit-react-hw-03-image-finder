@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { useState } from "react";
+import PropTypes from 'prop-types';
+
 const SearchBar = ({onBtnSubmit}) => {
    const[value,setValue]= useState('')
   
@@ -22,4 +24,9 @@ const SearchBar = ({onBtnSubmit}) => {
 </header>
     )
 }
+
+SearchBar.prototypes = {
+  onBtnSubmit: PropTypes.func.isRequired
+}
+
 export default SearchBar
